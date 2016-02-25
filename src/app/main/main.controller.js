@@ -9,22 +9,8 @@
   function MainController($log, $location, mainService) {
     var vm = this;
     vm.allData = [];
-    vm.gridData = {
-      data: 'vm.allData',
-      enableRowSelection: true,
-      enableSelectAll: true,
-      columnDefs: [
-                    { name:'name' , displayName: 'Name'},
-                    { name:'sex' , displayName: 'Sex'},
-                    { name:'nationality' , displayName: 'Nationality'}
-                  ],
-        afterSelectionChange: function (rowItem) {
-          if (rowItem.selected)  {
-            $location.path('/director/');
-          }
-        }
-    };
-    vm.totalServerItems = 0;
+    vm.gridData = {};
+    vm.mySelections = [];
 
     activate();
 
@@ -33,8 +19,32 @@
        .then(function(data){
         vm.allData = data;
         vm.totalServerItems = data.length;
-        vm.gridData.data = vm.allData;
       });
     }
+
+    vm.gridData = {
+      enableRowSelection: true,
+      enableRowHeaderSelection: false,
+      modifierKeysToMultiSelect: true,
+      multiSelect: true,
+      onRegisterApi: function(gridApi){
+        vm.gridApi = gridApi;
+        gridApi.selection.on.rowSelectionChanged(null,function(){
+        vm.mySelections = gridApi.selection.getSelectedRows();
+        $location.path('/director/');
+        });
+      },
+      data: 'vm.allData',
+      columnDefs: [
+                    { name:'name' , displayName: 'Name'},
+                    { name:'sex' , displayName: 'Sex'},
+                    { name:'nationality' , displayName: 'Nationality'},
+                    { name:'city' , displayName: 'City'},
+                    { name:'dob' , displayName: 'Dob', cellFilter: 'date: "dd/MM/yyyy"'},
+                    { name:'age' , displayName: 'Age'},
+                    { name:'blockbuster' , displayName: 'Blockbuster'}
+                  ]
+    };
+
   }
 })();

@@ -9,11 +9,13 @@
   function DirectorController($log, $location, mainService) {
     var vm = this;
 
-
     activate();
 
     function activate() {
-       $log.log('dd');
+        mainService.getDirector()
+       .then(function(data){
+          vm.allData = data;
+        });
     }
   }
 })();

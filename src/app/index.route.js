@@ -7,7 +7,7 @@
 
   function routeConfig($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/directors', {
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
         controllerAs: 'vm'
@@ -18,7 +18,7 @@
         controllerAs: 'vm'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/directors'
       });
   }
 
