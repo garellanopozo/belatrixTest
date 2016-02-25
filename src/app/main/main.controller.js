@@ -11,7 +11,7 @@
     vm.allData = [];
     vm.gridData = {};
     vm.mySelections = [];
-
+    vm.totalServerItems = 0;
     activate();
 
     function activate() {
@@ -30,8 +30,8 @@
       onRegisterApi: function(gridApi){
         vm.gridApi = gridApi;
         gridApi.selection.on.rowSelectionChanged(null,function(){
-        vm.mySelections = gridApi.selection.getSelectedRows();
-        $location.path('/director/');
+          vm.mySelections = gridApi.selection.getSelectedRows();
+          $location.path('/director/');
         });
       },
       data: 'vm.allData',
