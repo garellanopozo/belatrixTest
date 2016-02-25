@@ -1,9 +1,9 @@
 [
     {
-        "name": "Pedro Almodóvar",
+        "name": "Pedro Almodovar",
         "sex": "M",
         "nationality": "Spanish",
-        "city": "Almería",
+        "city": "Almeria",
         "dob": -639535067,
         "age": 66,
         "blockbuster": "Todo sobre mi madre"
@@ -45,7 +45,7 @@
         "blockbuster": "Psicosis"
     },
     {
-        "name": "Lucía Puenzo",
+        "name": "Lucia Puenzo",
         "sex": "F",
         "nationality": "Argentinian",
         "city": "Buenos Aires",
@@ -54,7 +54,7 @@
         "blockbuster": "Wakolda"
     },
     {
-        "name": "Alejandro González Iñárritu",
+        "name": "Alejandro Gonzalez Inarritu",
         "sex": "M",
         "nationality": "Mexican",
         "city": "Mexico DF",

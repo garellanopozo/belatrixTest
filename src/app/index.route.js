@@ -12,6 +12,11 @@
         controller: 'MainController',
         controllerAs: 'vm'
       })
+      .when('/director', {
+        templateUrl: 'app/main/director.html',
+        controller: 'DirectorController',
+        controllerAs: 'vm'
+      })
       .otherwise({
         redirectTo: '/'
       });
